@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import Footer from '../layout/Footer.js'
 import axios from 'axios'
+import Spinner from '../layout/Spinner'
 
 class Projects extends Component {
   state = {
@@ -58,21 +59,7 @@ class Projects extends Component {
               data-badge-caption="click/touch to show modal"
             ></span>
             {this.state.loading ? (
-              <div className="contianer center">
-                <div className="preloader-wrapper big active">
-                  <div className="spinner-layer spinner-blue-only">
-                    <div className="circle-clipper left">
-                      <div className="circle"></div>
-                    </div>
-                    <div className="gap-patch">
-                      <div className="circle"></div>
-                    </div>
-                    <div className="circle-clipper right">
-                      <div className="circle"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+	      <Spinner />
             ) : (
               <div className="carousel">
                 {this.state.projects.map(project => (

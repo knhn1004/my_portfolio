@@ -144,3 +144,4 @@ main.js
 .env
 *.swp
 tags
+*.main.js
