@@ -68,6 +68,7 @@ class Home extends Component {
 		  Also, I used <a href="https://materializecss.com/" target="_blank">materialize.css</a> framework and <a href="https://jquery.com/" target="_blank">jquery</a> to boost the UI/ UX.
 		  If your'e interested in how I built this site, click <a href="/about">here</a> to see more!
 		</p>
+		<p>Also, here is the <a href="https://github.com/knhn1004/my_portfolio">github repo</a> if you are interested</p>
 	      </div>
 	    </div>
 	    <div className="col s12 m8 offset-m2">
