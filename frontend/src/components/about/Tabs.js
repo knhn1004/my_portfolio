@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import TimeLineEvent from './TimeLineEvent.js'
+import Spinner from '../layout/Spinner'
+
 import axios from 'axios'
 import ReactHTMLParser from 'react-html-parser'
 
@@ -33,21 +35,7 @@ class Tabs extends Component {
         <div className="row">
           <div className="col s12">
             {this.state.loading ? (
-              <div className="center">
-                <div className="preloader-wrapper big active">
-                  <div className="spinner-layer spinner-blue-only">
-                    <div className="circle-clipper left">
-                      <div className="circle"></div>
-                    </div>
-                    <div className="gap-patch">
-                      <div className="circle"></div>
-                    </div>
-                    <div className="circle-clipper right">
-                      <div className="circle"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+	      <Spinner />
             ) : (
               <ul id="tabs-swipe-demo" className="tabs">
                 {this.state.expCat.map(cat => (
@@ -60,21 +48,7 @@ class Tabs extends Component {
           </div>
         </div>
         {this.state.loading ? (
-          <div className="center">
-            <div className="preloader-wrapper big active">
-              <div className="spinner-layer spinner-blue-only">
-                <div className="circle-clipper left">
-                  <div className="circle"></div>
-                </div>
-                <div className="gap-patch">
-                  <div className="circle"></div>
-                </div>
-                <div className="circle-clipper right">
-                  <div className="circle"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+	  <Spinner />
         ) : (
           this.state.expCat.map(cat => (
             <section id={cat.tag.slice(1)} className="section col s12">

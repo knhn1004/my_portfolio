@@ -3,6 +3,8 @@ import Card from './Card.js';
 import {Link} from 'react-router-dom';
 import Footer from '../layout/Footer.js';
 import SkillList from './SkillList.js';
+import Spinner from '../layout/Spinner'
+
 import axios from 'axios';
 
 class Skills extends Component {
@@ -57,19 +59,7 @@ class Skills extends Component {
         </div>
         <div id="skills"></div>
         {this.state.loading ? (
-	  <div className="center">
-	    <div className="preloader-wrapper big active">
-	      <div className="spinner-layer spinner-blue-only">
-		<div className="circle-clipper left">
-		  <div className="circle"></div>
-		</div><div className="gap-patch">
-		  <div className="circle"></div>
-		</div><div className="circle-clipper right">
-		  <div className="circle"></div>
-		</div>
-	      </div>
-	    </div>
-	  </div>
+	  <Spinner />
         ) : (
           <SkillList cats={this.state.skillCat} skills={this.state.skills} />
         )}
