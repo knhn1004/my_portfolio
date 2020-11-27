@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react'
+import React, {Fragment, Component} from 'react'
 import Footer from '../layout/Footer.js'
 import axios from 'axios'
 import Spinner from '../layout/Spinner'
@@ -6,7 +6,7 @@ import Spinner from '../layout/Spinner'
 class Projects extends Component {
   state = {
     projects: null,
-    loading: true
+    loading: true,
   }
 
   componentDidMount() {
@@ -18,7 +18,7 @@ class Projects extends Component {
       // console.log(res);
       this.setState({
         projects: res.data,
-        loading: false
+        loading: false,
       })
       $('.carousel').carousel()
       $('.modal').modal()
@@ -40,8 +40,7 @@ class Projects extends Component {
                 <a
                   className="btn-large waves-effect wave-light orange darken-3"
                   href="https://github.com/knhn1004"
-                  target="_blank"
-                >
+                  target="_blank">
                   <i className="fab fa-github"></i> &nbsp; Github Page
                 </a>
               </div>
@@ -56,18 +55,16 @@ class Projects extends Component {
             </h3>
             <span
               className="badge blue white-text"
-              data-badge-caption="click/touch to show modal"
-            ></span>
+              data-badge-caption="click/touch to show modal"></span>
             {this.state.loading ? (
-	      <Spinner />
+              <Spinner />
             ) : (
               <div className="carousel">
                 {this.state.projects.map(project => (
                   <a
                     key={project.id}
                     className="carousel-item modal-trigger"
-                    href={project.tag}
-                  >
+                    href={project.tag}>
                     <img src={project.img} alt="" />
                   </a>
                 ))}
@@ -96,8 +93,7 @@ class Projects extends Component {
             <div
               id={project.tag.slice(1)}
               key={project.id}
-              className="modal card"
-            >
+              className="modal card">
               <div className="card-image">
                 <img className="responsive-img" src={project.img} alt="" />
               </div>

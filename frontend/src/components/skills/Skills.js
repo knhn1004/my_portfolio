@@ -1,23 +1,23 @@
-import React, {Fragment, Component} from 'react';
-import Card from './Card.js';
-import {Link} from 'react-router-dom';
-import Footer from '../layout/Footer.js';
-import SkillList from './SkillList.js';
+import React, {Fragment, Component} from 'react'
+import Card from './Card.js'
+import {Link} from 'react-router-dom'
+import Footer from '../layout/Footer.js'
+import SkillList from './SkillList.js'
 import Spinner from '../layout/Spinner'
 
-import axios from 'axios';
+import axios from 'axios'
 
 class Skills extends Component {
   state = {
     skillCat: null,
     skills: null,
     loading: true,
-  };
+  }
 
   componentDidMount() {
     setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
+      window.scrollTo(0, 0)
+    }, 500)
 
     Promise.all([
       axios.get('/api/v1/skill_categories/'),
@@ -28,8 +28,8 @@ class Skills extends Component {
         skillCat: res[0].data,
         skills: res[1].data,
         loading: false,
-      });
-    });
+      })
+    })
   }
 
   render() {
@@ -59,14 +59,14 @@ class Skills extends Component {
         </div>
         <div id="skills"></div>
         {this.state.loading ? (
-	  <Spinner />
+          <Spinner />
         ) : (
           <SkillList cats={this.state.skillCat} skills={this.state.skills} />
         )}
         <Footer />
       </Fragment>
-    );
+    )
   }
 }
 
-export default Skills;
+export default Skills

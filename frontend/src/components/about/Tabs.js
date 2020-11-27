@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, {Component, Fragment} from 'react'
 import TimeLineEvent from './TimeLineEvent.js'
 import Spinner from '../layout/Spinner'
 
@@ -9,22 +9,22 @@ class Tabs extends Component {
   state = {
     expCat: null,
     exps: null,
-    loading: true
+    loading: true,
   }
 
   componentDidMount() {
     Promise.all([
       axios.get('/api/v1/exp_categories/'),
-      axios.get('/api/v1/exps/')
+      axios.get('/api/v1/exps/'),
     ]).then(res => {
       // console.log(res);
       this.setState({
         expCat: res[0].data,
         exps: res[1].data,
-        loading: false
+        loading: false,
       })
       $('#tabs-swipe-demo').tabs({
-        swipeable: true
+        swipeable: true,
       })
     })
   }
@@ -35,7 +35,7 @@ class Tabs extends Component {
         <div className="row">
           <div className="col s12">
             {this.state.loading ? (
-	      <Spinner />
+              <Spinner />
             ) : (
               <ul id="tabs-swipe-demo" className="tabs">
                 {this.state.expCat.map(cat => (
@@ -48,7 +48,7 @@ class Tabs extends Component {
           </div>
         </div>
         {this.state.loading ? (
-	  <Spinner />
+          <Spinner />
         ) : (
           this.state.expCat.map(cat => (
             <section id={cat.tag.slice(1)} className="section col s12">
